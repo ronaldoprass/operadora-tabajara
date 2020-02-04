@@ -2,7 +2,7 @@ package br.com.tabajaradigital.cobranca;
 
 /**
  *
- * @author ronaldo
+ * @author ronaldo prass
  */
 public interface Cobranca {
 
