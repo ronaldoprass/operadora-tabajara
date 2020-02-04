@@ -15,6 +15,9 @@ public abstract class PlanoTelefonia extends Plano
         super(codigoPlano, descricaoPlano, valorPlano);
         this.franquiaMinuto = franquiaMinuto;
     }
+    
+   
+    
 
     public double getFranquiaMinuto() {
         return franquiaMinuto;

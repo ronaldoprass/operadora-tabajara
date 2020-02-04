@@ -10,7 +10,8 @@ public class PlanoPosPago extends PlanoTelefonia  implements Cobranca{
     private double minutoAdicional;
  
 
-    public PlanoPosPago(int codigoPlano, String descricaoPlano, double valorPlano, double franquiaMinuto, double minutoAdicional) {
+    public PlanoPosPago(int codigoPlano, String descricaoPlano, 
+    		double valorPlano, double franquiaMinuto, double minutoAdicional) {
         super(codigoPlano, descricaoPlano, valorPlano, franquiaMinuto);
         this.minutoAdicional = minutoAdicional;
     }

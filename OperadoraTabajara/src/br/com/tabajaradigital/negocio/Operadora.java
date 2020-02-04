@@ -32,4 +32,11 @@ public class Operadora {
     public void setNomeOperadora(String nomeOperadora) {
         this.nomeOperadora = nomeOperadora;
     }
+
+	@Override
+	public String toString() {
+		return "Operadora [codigoOperadora=" + codigoOperadora + ", nomeOperadora=" + nomeOperadora + "]";
+	}
+    
+    
 }
