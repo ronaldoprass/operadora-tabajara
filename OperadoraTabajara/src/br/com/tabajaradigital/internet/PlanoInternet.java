@@ -1,7 +1,6 @@
 package br.com.tabajaradigital.internet;
 
 import br.com.tabajaradigital.negocio.Plano;
-import br.com.tabajaradigital.cobranca.Cobranca;
 
 /**
  *
