@@ -7,7 +7,7 @@ import br.com.tabajaradigital.cobranca.Cobranca;
  *
  * @author ronaldo
  */
-public class PlanoInternet extends Plano implements Cobranca {
+public class PlanoInternet extends Plano {
 
     private int velocidade;
     private int franquiaDado;
@@ -44,25 +44,41 @@ public class PlanoInternet extends Plano implements Cobranca {
         this.dadoAdicional = dadoAdicional;
     }
 
-    public double calculaCobranca(double servicoUtilizado) {
-        double valorCobranca = 0.0;
-        if (servicoUtilizado <= franquiaDado) {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(dadoAdicional);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + franquiaDado;
+		result = prime * result + velocidade;
+		return result;
+	}
 
-            valorCobranca = getValorPlano();
-        } else {
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PlanoInternet other = (PlanoInternet) obj;
+		if (Double.doubleToLongBits(dadoAdicional) != Double.doubleToLongBits(other.dadoAdicional))
+			return false;
+		if (franquiaDado != other.franquiaDado)
+			return false;
+		if (velocidade != other.velocidade)
+			return false;
+		return true;
+	}
 
-            valorCobranca = getValorPlano() + calculaAdicional(servicoUtilizado);
-        }
-        return valorCobranca;
-    }
+	@Override
+	public String toString() {
+		return "PlanoInternet [velocidade=" + velocidade + ", franquiaDado=" + franquiaDado + ", dadoAdicional="
+				+ dadoAdicional + "]";
+	}
 
-    public double calculaAdicional(double servicoExcedido) {
-
-        double valorAdicional = 0.0;
-        if (servicoExcedido > getFranquiaDado()) {
-
-            valorAdicional = dadoAdicional * (servicoExcedido - getFranquiaDado());
-        }
-        return valorAdicional;
-    }
+    
 }

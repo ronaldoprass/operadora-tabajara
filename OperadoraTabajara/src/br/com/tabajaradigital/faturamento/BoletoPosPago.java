@@ -1,8 +1,9 @@
 package br.com.tabajaradigital.faturamento;
 
+import br.com.tabajaradigital.cobranca.Cobranca;
 import br.com.tabajaradigital.telefonia.PlanoPosPago;
 
-public  class BoletoPosPago extends Boleto {
+public  class BoletoPosPago extends Boleto implements Cobranca{
 
 	public BoletoPosPago(PlanoPosPago plano) {
 		super();

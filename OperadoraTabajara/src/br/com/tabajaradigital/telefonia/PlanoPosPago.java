@@ -5,7 +5,7 @@ import br.com.tabajaradigital.cobranca.Cobranca;
  *
  * @author ronaldo
  */
-public class PlanoPosPago extends PlanoTelefonia  implements Cobranca{
+public class PlanoPosPago extends PlanoTelefonia{
 
     private double minutoAdicional;
  
@@ -24,29 +24,34 @@ public class PlanoPosPago extends PlanoTelefonia  implements Cobranca{
         this.minutoAdicional = minutoAdicional;
     }
 
-    @Override
-    public double calculaCobranca(double servicoUtilizado) {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(minutoAdicional);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
 
-        double valorCobranca = 0.0;
-        if (servicoUtilizado <= getFranquiaMinuto()) {
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PlanoPosPago other = (PlanoPosPago) obj;
+		if (Double.doubleToLongBits(minutoAdicional) != Double.doubleToLongBits(other.minutoAdicional))
+			return false;
+		return true;
+	}
 
-            valorCobranca = getValorPlano();
+	@Override
+	public String toString() {
+		return "PlanoPosPago [minutoAdicional=" + minutoAdicional + "]";
+	}
 
-        } else {
-
-            valorCobranca = getValorPlano() + calculaAdicional(servicoUtilizado);
-        }
-        return valorCobranca;
-    }
-
-    @Override
-    public double calculaAdicional(double servicoUtilizado) {
-
-        double valorExcedido = 0.0;
-        if (servicoUtilizado > getFranquiaMinuto()) {
-
-            valorExcedido = getMinutoAdicional() * (servicoUtilizado - getFranquiaMinuto());
-        }
-        return valorExcedido;
-    }
+    
 }
