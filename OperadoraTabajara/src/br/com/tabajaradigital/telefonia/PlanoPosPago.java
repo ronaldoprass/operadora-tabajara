@@ -1,5 +1,4 @@
 package br.com.tabajaradigital.telefonia;
-import br.com.tabajaradigital.cobranca.Cobranca;
 
 /**
  *
