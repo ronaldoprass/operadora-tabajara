@@ -28,4 +28,12 @@ public abstract class PlanoTelefonia extends Plano
     }
 
 
+
+
+	@Override
+	public String toString() {
+		return "PlanoTelefonia [franquiaMinuto=" + franquiaMinuto + "]";
+	}
+
+
 }

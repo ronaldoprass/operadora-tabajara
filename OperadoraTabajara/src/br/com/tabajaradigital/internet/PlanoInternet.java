@@ -9,22 +9,24 @@ import br.com.tabajaradigital.cobranca.Cobranca;
  */
 public class PlanoInternet extends Plano {
 
-    private int velocidade;
+    private String velocidade;
     private int franquiaDado;
     private double dadoAdicional;
 
-    public PlanoInternet(int codigoPlano, String descricaoPlano, double valorPlano, int velocidade, int franquiaDado, double dadoAdicional) {
+    public PlanoInternet(int codigoPlano, String descricaoPlano, 
+    		double valorPlano, String velocidade, 
+    		int franquiaDado, double dadoAdicional) {
         super(codigoPlano, descricaoPlano, valorPlano);
         this.velocidade = velocidade;
         this.franquiaDado = franquiaDado;
         this.dadoAdicional = dadoAdicional;
     }
 
-    public int getVelocidade() {
+    public String getVelocidade() {
         return velocidade;
     }
 
-    public void setVelocidade(int velocidade) {
+    public void setVelocidade(String velocidade) {
         this.velocidade = velocidade;
     }
 
@@ -44,35 +46,7 @@ public class PlanoInternet extends Plano {
         this.dadoAdicional = dadoAdicional;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(dadoAdicional);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + franquiaDado;
-		result = prime * result + velocidade;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PlanoInternet other = (PlanoInternet) obj;
-		if (Double.doubleToLongBits(dadoAdicional) != Double.doubleToLongBits(other.dadoAdicional))
-			return false;
-		if (franquiaDado != other.franquiaDado)
-			return false;
-		if (velocidade != other.velocidade)
-			return false;
-		return true;
-	}
+	
 
 	@Override
 	public String toString() {

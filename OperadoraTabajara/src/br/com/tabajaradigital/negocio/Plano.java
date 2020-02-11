@@ -42,4 +42,12 @@ public abstract class Plano{
     public void setValorPlano(double valorPlano) {
         this.valorPlano = valorPlano;
     }
+
+	@Override
+	public String toString() {
+		return "Plano [codigoPlano=" + codigoPlano + ", descricaoPlano=" + descricaoPlano + ", valorPlano=" + valorPlano
+				+ "]";
+	}
+    
+    
 }

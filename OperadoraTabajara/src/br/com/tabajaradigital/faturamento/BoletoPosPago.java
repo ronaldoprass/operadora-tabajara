@@ -1,27 +1,21 @@
 package br.com.tabajaradigital.faturamento;
 
-import br.com.tabajaradigital.cobranca.Cobranca;
+import br.com.tabajaradigital.negocio.Cliente;
+import br.com.tabajaradigital.negocio.Operadora;
 import br.com.tabajaradigital.telefonia.PlanoPosPago;
 
-public  class BoletoPosPago extends Boleto implements Cobranca{
-
-	public BoletoPosPago(PlanoPosPago plano) {
-		super();
-		this.plano = plano;
-	}
+public class BoletoPosPago extends Boleto {
 
 	private PlanoPosPago plano;
 
-	private PlanoPosPago getPlano() {
-		return plano;
-	}
-
-	private void setPlano(PlanoPosPago plano) {
+	public BoletoPosPago(Cliente cliente, Operadora operadora, PlanoPosPago plano) {
+		super(cliente,operadora);
 		this.plano = plano;
 	}
 
+
 	@Override
-	public final double calculaCobranca(double servicoUtilizado) {
+	public  double calculaCobranca(double servicoUtilizado) {
 		double valorCobranca = 0.0;
 		if (servicoUtilizado <= plano.getFranquiaMinuto()) {
 
@@ -37,7 +31,7 @@ public  class BoletoPosPago extends Boleto implements Cobranca{
 
 
 	@Override
-	public final double calculaAdicional(double servicoExcedido) {
+	public  double calculaAdicional(double servicoExcedido) {
 
 		double valorAdicional = 0.0;
 		if (servicoExcedido > plano.getFranquiaMinuto()) {

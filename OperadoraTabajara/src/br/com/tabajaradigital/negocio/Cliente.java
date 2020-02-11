@@ -8,14 +8,14 @@ public class Cliente {
 
     private int codigoCliente;
     private String nomeCliente;
-    private int numeroCliente;
+    private String numeroCliente;
     private StatusCliente status;
 
     public Cliente() {
     }
 
-	public Cliente(int codigoCliente, String nomeCliente, int numeroCliente, StatusCliente status) {
-		super();
+	public Cliente(int codigoCliente, String nomeCliente, String numeroCliente, StatusCliente status) {
+		
 		this.codigoCliente = codigoCliente;
 		this.nomeCliente = nomeCliente;
 		this.numeroCliente = numeroCliente;
@@ -38,11 +38,11 @@ public class Cliente {
 		this.nomeCliente = nomeCliente;
 	}
 
-	public int getNumeroCliente() {
+	public String getNumeroCliente() {
 		return numeroCliente;
 	}
 
-	public void setNumeroCliente(int numeroCliente) {
+	public void setNumeroCliente(String numeroCliente) {
 		this.numeroCliente = numeroCliente;
 	}
 

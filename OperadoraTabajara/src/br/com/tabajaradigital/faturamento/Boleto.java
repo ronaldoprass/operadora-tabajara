@@ -4,7 +4,7 @@ import br.com.tabajaradigital.cobranca.Cobranca;
 import br.com.tabajaradigital.negocio.Cliente;
 import br.com.tabajaradigital.negocio.Operadora;
 
-public abstract class Boleto implements Cobranca {
+public abstract class Boleto implements Cobranca{
 
 	private Cliente cliente;
 	private Operadora operadora;
@@ -13,35 +13,40 @@ public abstract class Boleto implements Cobranca {
 	public Boleto() {
 	}
 
-	public Boleto(Cliente cliente, Operadora operadora, double valor) {
+	public Boleto(Cliente cliente, Operadora operadora) {
 		super();
 		this.cliente = cliente;
 		this.operadora = operadora;
-		this.valor = valor;
+		
 	}
 
-	private Cliente getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	private void setCliente(Cliente cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
-	private Operadora getOperadora() {
+	public Operadora getOperadora() {
 		return operadora;
 	}
 
-	private void setOperadora(Operadora operadora) {
+	public void setOperadora(Operadora operadora) {
 		this.operadora = operadora;
 	}
 
-	private double getValor() {
+	public double getValor() {
 		return valor;
 	}
 
-	private void setValor(double valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
+	}
+
+	@Override
+	public String toString() {
+		return "Boleto [cliente=" + cliente + ", operadora=" + operadora + ", valor=" + valor + "]";
 	}
 	
 	
